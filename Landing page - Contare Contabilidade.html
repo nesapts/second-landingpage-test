@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contare Contabilidade | Abra ou migre sua empresa sem dor de cabeça</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8F8; --surface:#FFFFFF; --ink:#13202A; --muted:#55636E; --line:#DCE3E5;
+  --accent:#17624F; --accent-ink:#FFFFFF; --soft:#E6F0EC;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F171C; --surface:#162229; --ink:#EAF0F1; --muted:#9BABB3; --line:#26363F;
+    --accent:#4FB596; --accent-ink:#0B1A15; --soft:#16302A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F171C; --surface:#162229; --ink:#EAF0F1; --muted:#9BABB3; --line:#26363F;
+  --accent:#4FB596; --accent-ink:#0B1A15; --soft:#16302A; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+header{padding:22px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-family:var(--serif);font-size:1.45rem;font-weight:600;text-decoration:none}
+.top-link{font-size:.95rem;color:var(--muted);text-decoration:none}
+.top-link:hover{color:var(--ink)}
+
+.hero{padding:48px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 20px}
+.lead{color:var(--muted);font-size:1.12rem;max-width:34em;margin:0 0 28px}
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.checks li{padding-left:28px;position:relative}
+.checks li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:8px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg) translateY(-3px)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px}
+.card h2{font-family:var(--serif);font-size:1.5rem;font-weight:500;margin:0 0 4px}
+.card p.sub{margin:0 0 20px;color:var(--muted);font-size:.95rem}
+label{display:block;font-size:.9rem;font-weight:500;margin:14px 0 6px}
+input,select{width:100%;padding:12px 14px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+button{width:100%;margin-top:22px;padding:14px 18px;font:inherit;font-weight:600;color:var(--accent-ink);background:var(--accent);border:0;border-radius:8px;cursor:pointer;transition:filter .15s}
+button:hover{filter:brightness(1.08)}
+.fine{font-size:.82rem;color:var(--muted);margin:12px 0 0}
+#ok{display:none;text-align:left}
+#ok h2{margin-bottom:8px}
+
+section.block{padding:72px 0;border-top:1px solid var(--line)}
+h2.title{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.01em;margin:0 0 40px;max-width:18em}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.cols h3{font-size:1.05rem;margin:0 0 6px}
+.cols p{margin:0;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--soft);color:var(--accent);font-weight:600;margin-bottom:14px}
+.steps h3{font-size:1.05rem;margin:0 0 6px}
+.steps p{margin:0;color:var(--muted)}
+
+.final{background:var(--soft);padding:72px 0;text-align:center}
+.final h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.3rem);margin:0 0 12px}
+.final p{color:var(--muted);margin:0 0 26px}
+.btn{display:inline-block;padding:14px 26px;background:var(--accent);color:var(--accent-ink);font-weight:600;border-radius:8px;text-decoration:none}
+footer{padding:28px 0;font-size:.88rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .cols,.steps{grid-template-columns:1fr;gap:28px}
+  .hero{padding-top:24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Contare</a>
+    <a class="top-link" href="#contato">Falar com um contador</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Sua contabilidade resolvida, para você cuidar do negócio.</h1>
+        <p class="lead">Abertura de empresa, impostos, folha e fiscal em um só lugar, com um contador de verdade que responde rápido e explica sem complicar.</p>
+        <ul class="checks">
+          <li>Abertura de CNPJ em até 7 dias úteis</li>
+          <li>Troca de contador sem burocracia e sem custo de migração</li>
+          <li>Mensalidade fixa, sem surpresas</li>
+        </ul>
+      </div>
+
+      <div class="card" id="contato">
+        <form id="form" novalidate>
+          <h2>Peça um diagnóstico gratuito</h2>
+          <p class="sub">Respondemos em até 1 dia útil.</p>
+          <label for="nome">Seu nome</label>
+          <input id="nome" name="nome" autocomplete="name" required>
+          <label for="whats">WhatsApp</label>
+          <input id="whats" name="whats" type="tel" inputmode="tel" autocomplete="tel" placeholder="(66) 90000-0000" required>
+          <label for="situacao">Qual é a sua situação?</label>
+          <select id="situacao" name="situacao">
+            <option>Quero abrir uma empresa</option>
+            <option>Quero trocar de contador</option>
+            <option>Sou MEI e quero crescer</option>
+            <option>Outra situação</option>
+          </select>
+          <button type="submit">Quero meu diagnóstico</button>
+          <p class="fine">Sem spam. Usamos seus dados só para entrar em contato.</p>
+        </form>
+        <div id="ok" role="status" aria-live="polite">
+          <h2>Recebemos seu pedido.</h2>
+          <p class="sub" style="margin:0">Em breve um contador vai chamar você no WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2 class="title">O que você deixa de se preocupar</h2>
+      <div class="cols">
+        <div><h3>Impostos em dia</h3><p>Calculamos, avisamos o vencimento e cuidamos das guias. Você não perde prazo nem paga multa.</p></div>
+        <div><h3>Papelada com a gente</h3><p>Notas fiscais, folha de pagamento, alvarás e certidões ficam por nossa conta.</p></div>
+        <div><h3>Orientação clara</h3><p>Dúvidas sobre regime tributário ou pró-labore? Você fala direto com quem resolve.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2 class="title">Como começar</h2>
+      <ol class="steps">
+        <li><h3>Você preenche o formulário</h3><p>Leva menos de um minuto.</p></li>
+        <li><h3>Fazemos um diagnóstico</h3><p>Analisamos seu caso e mostramos onde dá para pagar menos imposto.</p></li>
+        <li><h3>Cuidamos do resto</h3><p>Você aprova a proposta e passamos a tocar a parte contábil.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Pronto para ter um contador de confiança?</h2>
+      <p>Prefere conversar agora? Chame no WhatsApp.</p>
+      <a class="btn" href="https://wa.me/5500000000000" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Contare Contabilidade · CRC 00000</span>
+    <span>contato@contare.com.br</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('nome'),w=document.getElementById('whats');
+  if(!n.value.trim()){n.focus();return}
+  if(w.value.replace(/\D/g,'').length<10){w.focus();return}
+  // Aqui você conecta o envio real (Formspree, Google Forms, seu back-end).
+  this.style.display='none';
+  document.getElementById('ok').style.display='block';
+});
+</script>
+</body>
+</html>
